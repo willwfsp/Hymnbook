@@ -12,7 +12,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let window = UIWindow(windowScene: windowScene)
         let rootViewController = UIHostingController(rootView: ContentView())
         let nav = UINavigationController(rootViewController: rootViewController)
-        rootViewController.title = "Main"
+        rootViewController.title = "Search"
         nav.navigationBar.prefersLargeTitles = true
         window.rootViewController = nav
 
