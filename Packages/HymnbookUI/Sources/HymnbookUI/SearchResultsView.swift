@@ -48,5 +48,23 @@ struct SearchResultsView_Previews: PreviewProvider {
             sectionHeader: "All songs",
             showSuggestions: true
         )
+
+        SearchResultsView(
+            results:  [
+                "The Day is Drawing Near",
+                "O Lord I come before You in this hour of prayer",
+                "No longer am I what I was",
+                "God is in His temple",
+                "Hallelujah! Many voices of Angels",
+            ],
+            sectionHeader: "Search Results",
+            showSuggestions: false
+        )
+
+        SearchResultsView(
+            results:  [],
+            sectionHeader: "All songs",
+            showSuggestions: true
+        )
     }
 }
