@@ -21,16 +21,11 @@ public struct SearchView: View {
     }
 
     public var body: some View {
-        List {
-            Section(header: Text(sectionHeader)) {
-                ForEach(searchResults, id: \.self) { name in
-                    Text(name)
-                        .lineLimit(1)
-                        .padding(.vertical, 8)
-                }
-            }
-        }
-        .listStyle(.inset)
+        SearchResultsView(
+            results: searchResults,
+            sectionHeader: sectionHeader,
+            showSuggestions: searchText.isEmpty
+        )
         .searchable(text: $searchText)
     }
 
