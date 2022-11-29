@@ -48,6 +48,7 @@ struct SearchResultsView_Previews: PreviewProvider {
             sectionHeader: "All songs",
             showSuggestions: true
         )
+        .previewDisplayName("Suggestions")
 
         SearchResultsView(
             results:  [
@@ -60,11 +61,13 @@ struct SearchResultsView_Previews: PreviewProvider {
             sectionHeader: "Search Results",
             showSuggestions: false
         )
+        .previewDisplayName("Search Results")
 
         SearchResultsView(
             results:  [],
             sectionHeader: "All songs",
             showSuggestions: true
         )
+        .previewDisplayName("Empty")
     }
 }
