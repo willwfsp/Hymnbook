@@ -2,6 +2,7 @@ import SwiftUI
 
 enum Icon: String {
     case magnifyingGlass = "magnifyingglass"
+    case xCircleFill = "x.circle.fill"
 }
 
 extension Image {

@@ -10,9 +10,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
 
         let window = UIWindow(windowScene: windowScene)
-        let rootViewController = UIHostingController(rootView: ContentView())
+        let rootViewController = SearchComposer.make()
         let nav = UINavigationController(rootViewController: rootViewController)
-        rootViewController.title = "Search"
         nav.navigationBar.prefersLargeTitles = true
         window.rootViewController = nav
 
@@ -50,4 +49,3 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 
 }
-

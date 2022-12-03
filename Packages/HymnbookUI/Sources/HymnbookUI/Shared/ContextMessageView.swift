@@ -1,14 +1,18 @@
 import SwiftUI
 
-struct EmptyStateView: View {
+struct ContextMessageView: View {
+    let icon: Icon?
     let title: String
     let message: String
 
     var body: some View {
         VStack(spacing: 16) {
-            Image(.magnifyingGlass)
-                .font(.system(size: 48))
-                .foregroundColor(.secondary)
+            if let icon {
+                Image(icon)
+                    .font(.system(size: 48))
+                    .foregroundColor(.secondary)
+            }
+
             VStack(spacing: 8) {
                 Text(title)
                     .font(.title3)
@@ -25,9 +29,10 @@ struct EmptyStateView: View {
     }
 }
 
-struct EmptyStateView_Previews: PreviewProvider {
+struct ContextMessageView_Previews: PreviewProvider {
     static var previews: some View {
-        EmptyStateView(
+        ContextMessageView(
+            icon: .magnifyingGlass,
             title: "No Results to show",
             message: "Please check spelling or try different keywords"
         )

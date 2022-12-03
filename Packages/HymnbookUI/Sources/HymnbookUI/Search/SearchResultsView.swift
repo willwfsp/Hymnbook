@@ -1,16 +1,19 @@
 import SwiftUI
-
-struct SearchResultsView: View {
-    let results: [String]
+public struct SearchResultsState: Equatable {
+    let list: [String]
     let sectionHeader: String
     let showSuggestions: Bool
+}
 
-    private var contentStateView: some View {
+struct SearchResultsView: View {
+    let state: SearchResultsState
+
+    var body: some View {
         List {
-            Section(header: Text(sectionHeader)) {
-                ForEach(results, id: \.self) { name in
+            Section(header: Text(state.sectionHeader)) {
+                ForEach(state.list, id: \.self) { name in
                     HStack {
-                        if !showSuggestions {
+                        if !state.showSuggestions {
                             Image(.magnifyingGlass)
                         }
                         Text(name)
@@ -22,23 +25,12 @@ struct SearchResultsView: View {
         }
         .listStyle(.inset)
     }
-
-    var body: some View {
-        if results.isEmpty {
-            EmptyStateView(
-                title: "No results to show",
-                message: "Please check spelling or try different keywords"
-            )
-        } else {
-            contentStateView
-        }
-    }
 }
 
 struct SearchResultsView_Previews: PreviewProvider {
     static var previews: some View {
-        SearchResultsView(
-            results:  [
+        SearchResultsView(state: .init(
+            list:  [
                 "The Day is Drawing Near",
                 "O Lord I come before You in this hour of prayer",
                 "No longer am I what I was",
@@ -47,11 +39,11 @@ struct SearchResultsView_Previews: PreviewProvider {
             ],
             sectionHeader: "All songs",
             showSuggestions: true
-        )
+        ))
         .previewDisplayName("Suggestions")
 
-        SearchResultsView(
-            results:  [
+        SearchResultsView(state: .init(
+            list:  [
                 "The Day is Drawing Near",
                 "O Lord I come before You in this hour of prayer",
                 "No longer am I what I was",
@@ -60,14 +52,7 @@ struct SearchResultsView_Previews: PreviewProvider {
             ],
             sectionHeader: "Search Results",
             showSuggestions: false
-        )
+        ))
         .previewDisplayName("Search Results")
-
-        SearchResultsView(
-            results:  [],
-            sectionHeader: "All songs",
-            showSuggestions: true
-        )
-        .previewDisplayName("Empty")
     }
 }
