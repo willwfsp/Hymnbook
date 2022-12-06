@@ -1,4 +1,4 @@
-![iOS Tests](https://github.com/github/docs/actions/workflows/CI-iOS.yml/badge.svg?branch=main)
+![iOS Tests](https://github.com/willwfsp/Hymnbook/actions/workflows/iOS-Tests.yml/badge.svg?branch=main)
 
 # Hymnbook
 
