@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		35A33B0329466EFF00B7C07B /* SongUIComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A33B0229466EFF00B7C07B /* SongUIComposer.swift */; };
+		35A33B062946710000B7C07B /* MainFirstSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A33B052946710000B7C07B /* MainFirstSplitViewController.swift */; };
 		B038DC9A2938334B008CD119 /* SearchUIComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B038DC992938334B008CD119 /* SearchUIComposer.swift */; };
 		B038DCBD293B0408008CD119 /* SearchViewAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B038DCBC293B0408008CD119 /* SearchViewAdapter.swift */; };
 		B059E484293419BD001B3D2B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B059E483293419BD001B3D2B /* AppDelegate.swift */; };
@@ -17,6 +19,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		35A33B0229466EFF00B7C07B /* SongUIComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongUIComposer.swift; sourceTree = "<group>"; };
+		35A33B052946710000B7C07B /* MainFirstSplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFirstSplitViewController.swift; sourceTree = "<group>"; };
 		B038DC992938334B008CD119 /* SearchUIComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUIComposer.swift; sourceTree = "<group>"; };
 		B038DCBC293B0408008CD119 /* SearchViewAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewAdapter.swift; sourceTree = "<group>"; };
 		B059E480293419BD001B3D2B /* Hymnbook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hymnbook.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -40,10 +44,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		35A33B04294670EA00B7C07B /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				35A33B052946710000B7C07B /* MainFirstSplitViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
 		B038DC9829383338008CD119 /* Composers */ = {
 			isa = PBXGroup;
 			children = (
 				B038DC992938334B008CD119 /* SearchUIComposer.swift */,
+				35A33B0229466EFF00B7C07B /* SongUIComposer.swift */,
 			);
 			path = Composers;
 			sourceTree = "<group>";
@@ -77,6 +90,7 @@
 		B059E482293419BD001B3D2B /* Hymnbook */ = {
 			isa = PBXGroup;
 			children = (
+				35A33B04294670EA00B7C07B /* ViewControllers */,
 				B038DCBB293B03F3008CD119 /* Adapters */,
 				B038DC9829383338008CD119 /* Composers */,
 				B059E483293419BD001B3D2B /* AppDelegate.swift */,
@@ -176,6 +190,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				35A33B0329466EFF00B7C07B /* SongUIComposer.swift in Sources */,
+				35A33B062946710000B7C07B /* MainFirstSplitViewController.swift in Sources */,
 				B038DCBD293B0408008CD119 /* SearchViewAdapter.swift in Sources */,
 				B059E484293419BD001B3D2B /* AppDelegate.swift in Sources */,
 				B038DC9A2938334B008CD119 /* SearchUIComposer.swift in Sources */,

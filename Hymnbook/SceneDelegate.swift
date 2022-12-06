@@ -13,7 +13,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let window = UIWindow(windowScene: windowScene)
 
         let primaryViewController = SearchComposer.make()
-        let secondaryViewController = UIHostingController(rootView: LyricsView())
+        let secondaryViewController = SongUIComposer.make()
 
         let nav = UINavigationController(rootViewController: primaryViewController)
         nav.navigationBar.prefersLargeTitles = true
