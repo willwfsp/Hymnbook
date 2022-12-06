@@ -1,5 +1,6 @@
 import SwiftUI
 import UIKit
+import HymnbookUI
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -10,10 +11,17 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
 
         let window = UIWindow(windowScene: windowScene)
-        let rootViewController = SearchComposer.make()
-        let nav = UINavigationController(rootViewController: rootViewController)
+
+        let primaryViewController = SearchComposer.make()
+        let secondaryViewController = UIHostingController(rootView: LyricsView())
+
+        let nav = UINavigationController(rootViewController: primaryViewController)
         nav.navigationBar.prefersLargeTitles = true
-        window.rootViewController = nav
+
+        let splitVC = MainFirstSplitViewController()
+        splitVC.viewControllers = [nav, secondaryViewController]
+
+        window.rootViewController = splitVC
 
         self.window = window
         window.makeKeyAndVisible()
@@ -48,4 +56,21 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
 
+}
+
+class MainFirstSplitViewController: UISplitViewController, UISplitViewControllerDelegate {
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.delegate = self
+        self.preferredDisplayMode = .oneBesideSecondary
+    }
+
+    func splitViewController(
+             _ splitViewController: UISplitViewController,
+             collapseSecondary secondaryViewController: UIViewController,
+             onto primaryViewController: UIViewController) -> Bool {
+        // Return true to prevent UIKit from applying its default behavior
+        return true
+    }
 }
