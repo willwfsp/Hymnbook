@@ -25,9 +25,9 @@ enum SearchComposer {
 
         var body: some View {
             SearchView(
-                searchText: $viewModel.searchText,
-                state: $viewModel.state
+                state: viewModel.state
             )
+            .searchable(text: $viewModel.searchText)
         }
     }
 

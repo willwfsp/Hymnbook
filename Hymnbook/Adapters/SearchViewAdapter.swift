@@ -15,9 +15,7 @@ class SearchStubAdapter: ObservableObject {
 
     func fetchSongs() {
         result = nil
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-            self.result = .success(self.mocks)
-        }
+        self.result = .success(self.mocks)
     }
 
     struct GenericError: Error {}

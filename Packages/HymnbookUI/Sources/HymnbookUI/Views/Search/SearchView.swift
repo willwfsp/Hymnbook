@@ -8,12 +8,10 @@ public enum SearchViewState {
 }
 
 public struct SearchView: View {
-    @Binding private var searchText: String
-    @Binding private var state: SearchViewState
+    private var state: SearchViewState
 
-    public init(searchText: Binding<String>, state: Binding<SearchViewState>) {
-        _searchText = searchText
-        _state = state
+    public init(state: SearchViewState) {
+        self.state = state
     }
 
     public var body: some View {
@@ -37,7 +35,7 @@ public struct SearchView: View {
                 ProgressView()
                     .scaleEffect(2)
             }
-        }.searchable(text: $searchText)
+        }
     }
 }
 
@@ -50,8 +48,7 @@ struct ContentView_Previews: PreviewProvider {
 
     static var previews: some View {
         SearchView(
-            searchText: .constant("Some"),
-            state:  .constant(.content(.init(
+            state:  .content(.init(
                 list: [
                     item("The Day is Drawing Near"),
                     item("O Lord I come before You in this hour of prayer"),
@@ -60,28 +57,25 @@ struct ContentView_Previews: PreviewProvider {
                     item("Hallelujah! Many voices of Angels"),
                 ],
                 sectionHeader: "A Header"
-            )))
+            ))
         )
         .previewDisplayName("Content")
 
         SearchView(
-            searchText: .constant("Any"),
-            state:  .constant(.empty(
+            state:  .empty(
                 title: "No results to show",
                 message: "Please check spelling or try different keywords"
-            ))
+            )
         )
         .previewDisplayName("Empty")
 
         SearchView(
-            searchText: .constant(""),
-            state: .constant(.loading)
+            state: .loading
         )
         .previewDisplayName("Loading")
 
         SearchView(
-            searchText: .constant(""),
-            state: .constant(.error(title: "Error", message: "error"))
+            state: .error(title: "Error", message: "error")
         )
         .previewDisplayName("Error")
     }
