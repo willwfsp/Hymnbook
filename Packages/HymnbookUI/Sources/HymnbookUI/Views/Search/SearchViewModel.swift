@@ -1,15 +1,29 @@
 import Combine
+import Foundation
+
+public struct SearchItem {
+    public let id: UUID
+    public let name: String
+
+    public init(id: UUID, name: String) {
+        self.id = id
+        self.name = name
+    }
+}
 
 public final class SearchViewModel: ObservableObject {
     private typealias Strings = Localization.Search
 
-    private var cancellables = Set<AnyCancellable>()
-
     @Published public var searchText = ""
-    @Published public var result: Result<[String], Error>?
+    @Published public var result: Result<[SearchItem], Error>?
     @Published public var state = SearchViewState.loading
 
-    public init() {
+    private var cancellables = Set<AnyCancellable>()
+    private var onSelect: (SearchItem) -> Void
+
+    public init(onSelect: @escaping (SearchItem) -> Void) {
+        self.onSelect = onSelect
+
         cancellables = [
             $result.dropFirst().sink { [unowned self] result in
                 switch result {
@@ -31,7 +45,7 @@ public final class SearchViewModel: ObservableObject {
         ]
     }
 
-    private var allSongs: [String] = [] {
+    private var allSongs: [SearchItem] = [] {
         didSet {
             if allSongs.isEmpty {
                 state = .empty(
@@ -39,23 +53,26 @@ public final class SearchViewModel: ObservableObject {
                     message: Strings.noResultsMessage
                 )
             } else {
-                state = .content(.init(
-                    list: filteredResults,
-                    sectionHeader: sectionHeader,
-                    showSuggestions: showSuggestions
-                ))
+                setContent()
             }
         }
     }
 
     private var searchTerm: String = "" {
         didSet {
-            state = .content(.init(
-                list: filteredResults,
-                sectionHeader: sectionHeader,
-                showSuggestions: showSuggestions
-            ))
+            setContent()
         }
+    }
+
+    private func setContent() {
+        state = .content(.init(
+            list: filteredResults.map { item in
+                .init(id: item.id, name: item.name, onSelect: { [weak self] in
+                    self?.onSelect(item)
+                })
+            },
+            sectionHeader: sectionHeader
+        ))
     }
 
     private var sectionHeader: String {
@@ -74,11 +91,11 @@ public final class SearchViewModel: ObservableObject {
         searchTerm.isEmpty
     }
 
-    private var filteredResults: [String] {
+    private var filteredResults: [SearchItem] {
         if searchTerm.isEmpty {
             return allSongs
         } else {
-            return allSongs.filter { $0.contains(searchTerm) }
+            return allSongs.filter { $0.name.contains(searchTerm) }
         }
     }
 }

@@ -1,8 +1,13 @@
 import SwiftUI
-public struct SearchResultsState: Equatable {
-    let list: [String]
+public struct SearchResultsState {
+    struct Item: Identifiable {
+        let id: UUID
+        let name: String
+        let onSelect: () -> Void
+    }
+
+    let list: [Item]
     let sectionHeader: String
-    let showSuggestions: Bool
 }
 
 struct SearchResultsView: View {
@@ -11,15 +16,16 @@ struct SearchResultsView: View {
     var body: some View {
         List {
             Section(header: Text(state.sectionHeader)) {
-                ForEach(state.list, id: \.self) { name in
+                ForEach(state.list, id: \.id) { item in
                     HStack {
-                        if !state.showSuggestions {
-                            Image(.magnifyingGlass)
-                        }
-                        Text(name)
+                        Label(item.name, systemImage: Icon.magnifyingGlass.rawValue)
                             .lineLimit(1)
                             .padding(.vertical, 8)
+
+                        Spacer()
                     }
+                    .contentShape(Rectangle())
+                    .onTapGesture(perform: item.onSelect)
                 }
             }
         }
@@ -28,30 +34,23 @@ struct SearchResultsView: View {
 }
 
 struct SearchResultsView_Previews: PreviewProvider {
+    static func item(_ name: String) -> SearchResultsState.Item {
+        .init(
+            id: UUID(),
+            name: name, onSelect: {})
+    }
+    
     static var previews: some View {
         SearchResultsView(state: .init(
-            list:  [
-                "The Day is Drawing Near",
-                "O Lord I come before You in this hour of prayer",
-                "No longer am I what I was",
-                "God is in His temple",
-                "Hallelujah! Many voices of Angels",
+            list: [
+                item("The Day is Drawing Near"),
+                item("The Day is Drawing Near"),
+                item("O Lord I come before You in this hour of prayer"),
+                item("No longer am I what I was"),
+                item("God is in His temple"),
+                item("Hallelujah! Many voices of Angels"),
             ],
-            sectionHeader: "All songs",
-            showSuggestions: true
-        ))
-        .previewDisplayName("Suggestions")
-
-        SearchResultsView(state: .init(
-            list:  [
-                "The Day is Drawing Near",
-                "O Lord I come before You in this hour of prayer",
-                "No longer am I what I was",
-                "God is in His temple",
-                "Hallelujah! Many voices of Angels",
-            ],
-            sectionHeader: "Search Results",
-            showSuggestions: false
+            sectionHeader: "Search Results"
         ))
         .previewDisplayName("Search Results")
     }

@@ -1,22 +1,22 @@
 import Combine
 import Foundation
+import HymnbookUI
 
 class SearchStubAdapter: ObservableObject {
-    @Published var result: Result<[String], Error>?
+    @Published var result: Result<[SearchItem], Error>?
 
-    private let mocks = [
-        "The Day is Drawing Near",
-        "O Lord I come before You in this hour of prayer",
-        "No longer am I what I was",
-        "God is in His temple",
-        "Hallelujah! Many voices of Angels",
+    private let mocks: [SearchItem] = [
+        .init(id: UUID(), name: "The Day is Drawing Near"),
+        .init(id: UUID(), name: "O Lord I come before You in this hour of prayer"),
+        .init(id: UUID(), name: "No longer am I what I was"),
+        .init(id: UUID(), name: "God is in His temple"),
+        .init(id: UUID(), name: "Hallelujah! Many voices of Angels")
     ]
 
     func fetchSongs() {
         result = nil
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-            let random = Bool.random()
-            self.result = random ? .success(self.mocks) : .failure(GenericError())
+            self.result = .success(self.mocks)
         }
     }
 

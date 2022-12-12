@@ -4,12 +4,14 @@ import SwiftUI
 import UIKit
 
 private class SearchBinder {
-    let viewModel = SearchViewModel()
+    let viewModel: SearchViewModel
     let adapter = SearchStubAdapter()
 
     var cancellables: Set<AnyCancellable> = []
 
-    init() {
+    init(onSelect: @escaping (SearchItem) -> Void) {
+        viewModel = SearchViewModel(onSelect: onSelect)
+
         adapter.$result
             .sink { [unowned self] in
                 self.viewModel.result = $0
@@ -29,8 +31,8 @@ enum SearchComposer {
         }
     }
 
-    static func make() -> UIViewController {
-        let binder = SearchBinder()
+    static func make(onSelect: @escaping (SearchItem) -> Void) -> UIViewController {
+        let binder = SearchBinder(onSelect: onSelect)
 
         let view = SearchComposedView(viewModel: binder.viewModel)
             .onAppear {

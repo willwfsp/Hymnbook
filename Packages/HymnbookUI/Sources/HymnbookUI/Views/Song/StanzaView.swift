@@ -21,7 +21,7 @@ public struct StanzaView: View {
     }
 }
 
-struct LyricsView_Previews: PreviewProvider {
+struct StanzaView_Previews: PreviewProvider {
     static var previews: some View {
         StanzaView(stanza:
             """
@@ -31,13 +31,5 @@ struct LyricsView_Previews: PreviewProvider {
             Tua beleza, porém, por toda eternidade é!
             """
         )
-    }
-}
-
-extension String {
-    func widthOfString(usingFont font: UIFont) -> CGFloat {
-        let fontAttributes = [NSAttributedString.Key.font: font]
-        let size = self.size(withAttributes: fontAttributes)
-        return size.width
     }
 }

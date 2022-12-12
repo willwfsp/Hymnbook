@@ -1,6 +1,6 @@
 import SwiftUI
 
-public enum SearchViewState: Equatable {
+public enum SearchViewState {
     case content(SearchResultsState)
     case error(title: String, message: String)
     case empty(title: String, message: String)
@@ -42,19 +42,24 @@ public struct SearchView: View {
 }
 
 struct ContentView_Previews: PreviewProvider {
+    static func item(_ name: String) -> SearchResultsState.Item {
+        .init(
+            id: UUID(),
+            name: name, onSelect: {})
+    }
+
     static var previews: some View {
         SearchView(
             searchText: .constant("Some"),
             state:  .constant(.content(.init(
                 list: [
-                    "The Day is Drawing Near",
-                    "O Lord I come before You in this hour of prayer",
-                    "No longer am I what I was",
-                    "God is in His temple",
-                    "Hallelujah! Many voices of Angels"
+                    item("The Day is Drawing Near"),
+                    item("O Lord I come before You in this hour of prayer"),
+                    item("No longer am I what I was"),
+                    item("God is in His temple"),
+                    item("Hallelujah! Many voices of Angels"),
                 ],
-                sectionHeader: "A Header",
-                showSuggestions: false
+                sectionHeader: "A Header"
             )))
         )
         .previewDisplayName("Content")
