@@ -21,9 +21,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let secondaryViewController = SongUIComposer.make()
 
         lazySelection.onSelect = { item in
-            let nav = UINavigationController(rootViewController: secondaryViewController)
-            nav.navigationBar.prefersLargeTitles = true
-            secondaryViewController.title = item.name
+            let nav = MultilineTitleNavigationController(rootViewController: secondaryViewController)
+            secondaryViewController.navigationItem.largeTitleDisplayMode = .never
+            secondaryViewController.title = "Song"
             primaryViewController.showDetailViewController(nav, sender: nil)
         }
 
@@ -72,4 +72,25 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 class LazySelectVirtualProxy {
     var onSelect: ((SearchItem) -> Void)?
+}
+
+class MultilineTitleNavigationController: UINavigationController, UINavigationBarDelegate {
+    func navigationBar(_ navigationBar: UINavigationBar, shouldPush item: UINavigationItem) -> Bool {
+        item.setValue(true, forKey: "__largeTitleTwoLineMode")
+        return true
+    }
+}
+
+extension UINavigationBar {
+    func setMultiline(title: String) {
+        for navItem in subviews {
+             for itemSubView in navItem.subviews {
+                 if let largeLabel = itemSubView as? UILabel {
+                     largeLabel.text = title
+                     largeLabel.numberOfLines = 0
+                     largeLabel.lineBreakMode = .byWordWrapping
+                 }
+             }
+        }
+    }
 }

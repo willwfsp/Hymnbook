@@ -10,13 +10,14 @@ public struct StanzaView: View {
     public var body: some View {
         VStack {
             Text(stanza)
-                .font(.body.monospaced())
-                .scaledToFit()
-                .minimumScaleFactor(0.5)
+                .font(.system(size: 18, design: .monospaced))
                 .lineSpacing(8)
         }
-        .padding()
-        .frame(maxWidth: .infinity, alignment: .leading).multilineTextAlignment(.leading)
+        .frame(
+            maxWidth: .infinity,
+            alignment: .leading
+        )
+        .multilineTextAlignment(.leading)
 
     }
 }
