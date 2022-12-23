@@ -15,26 +15,24 @@ public struct SearchView: View {
     }
 
     public var body: some View {
-        Group {
-            switch state {
-            case .content(let state):
-                SearchResultsView(
-                    state: state
-                )
-            case .empty(let title, let message):
-                EmptyStateView(
-                    title: title,
-                    message: message
-                )
-            case .error(let title, let message):
-                ErrorStateView(
-                    title: title,
-                    message: message
-                )
-            case .loading:
-                ProgressView()
-                    .scaleEffect(2)
-            }
+        switch state {
+        case .content(let state):
+            SearchResultsView(
+                state: state
+            )
+        case .empty(let title, let message):
+            EmptyStateView(
+                title: title,
+                message: message
+            )
+        case .error(let title, let message):
+            ErrorStateView(
+                title: title,
+                message: message
+            )
+        case .loading:
+            ProgressView()
+                .scaleEffect(2)
         }
     }
 }
