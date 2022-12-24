@@ -57,7 +57,7 @@ final class SearchViewModelTests: XCTestCase {
             selectedItems.append($0)
         })
         let item = SearchItem(id: uuid1, name: "A")
-        
+
         sut.result = .success([item])
 
         if case .content(let state) = sut.state, let viewItem = state.list.first {

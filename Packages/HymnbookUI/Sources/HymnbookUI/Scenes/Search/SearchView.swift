@@ -46,13 +46,13 @@ struct ContentView_Previews: PreviewProvider {
 
     static var previews: some View {
         SearchView(
-            state:  .content(.init(
+            state: .content(.init(
                 list: [
                     item("The Day is Drawing Near"),
                     item("O Lord I come before You in this hour of prayer"),
                     item("No longer am I what I was"),
                     item("God is in His temple"),
-                    item("Hallelujah! Many voices of Angels"),
+                    item("Hallelujah! Many voices of Angels")
                 ],
                 sectionHeader: "A Header"
             ))
@@ -60,7 +60,7 @@ struct ContentView_Previews: PreviewProvider {
         .previewDisplayName("Content")
 
         SearchView(
-            state:  .empty(
+            state: .empty(
                 title: "No results to show",
                 message: "Please check spelling or try different keywords"
             )

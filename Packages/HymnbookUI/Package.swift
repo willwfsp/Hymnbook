@@ -15,7 +15,7 @@ let package = Package(
         .library(
             name: "HymnbookUI",
             targets: ["HymnbookUI"]
-        ),
+        )
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
@@ -30,6 +30,6 @@ let package = Package(
         .testTarget(
             name: "HymnbookUI-UnitTests",
             dependencies: ["HymnbookUI"]
-        ),
+        )
     ]
 )

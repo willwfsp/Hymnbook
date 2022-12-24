@@ -39,7 +39,7 @@ struct SearchResultsView_Previews: PreviewProvider {
             id: UUID(),
             name: name, onSelect: {})
     }
-    
+
     static var previews: some View {
         SearchResultsView(state: .init(
             list: [
@@ -48,7 +48,7 @@ struct SearchResultsView_Previews: PreviewProvider {
                 item("O Lord I come before You in this hour of prayer"),
                 item("No longer am I what I was"),
                 item("God is in His temple"),
-                item("Hallelujah! Many voices of Angels"),
+                item("Hallelujah! Many voices of Angels")
             ],
             sectionHeader: "Search Results"
         ))
