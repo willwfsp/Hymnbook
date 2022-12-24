@@ -37,7 +37,8 @@ struct SearchResultsView_Previews: PreviewProvider {
     static func item(_ name: String) -> SearchResultsState.Item {
         .init(
             id: UUID(),
-            name: name, onSelect: {})
+            name: name, onSelect: {}
+        )
     }
 
     static var previews: some View {

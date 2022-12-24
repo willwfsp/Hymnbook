@@ -1,10 +1,10 @@
+import Combine
 @testable import HymnbookUI
 import XCTest
-import Combine
 
 final class SearchViewModelTests: XCTestCase {
-    typealias Strings = Localization.Search
-    struct GenericError: Error { }
+    typealias Strings = L10n.Search
+    struct GenericError: Error {}
 
     func test_updatesStateOnResultChange() {
         let (sut, output) = makeSUT()
@@ -60,7 +60,7 @@ final class SearchViewModelTests: XCTestCase {
 
         sut.result = .success([item])
 
-        if case .content(let state) = sut.state, let viewItem = state.list.first {
+        if case let .content(state) = sut.state, let viewItem = state.list.first {
             viewItem.onSelect()
         }
 
@@ -108,5 +108,5 @@ final class OutputSpy {
     }
 }
 
-extension SearchViewState: AutoEquatable { }
-extension SearchItem: AutoEquatable { }
+extension SearchViewState: AutoEquatable {}
+extension SearchItem: AutoEquatable {}

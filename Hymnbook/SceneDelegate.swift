@@ -1,15 +1,14 @@
+import HymnbookUI
 import SwiftUI
 import UIKit
-import HymnbookUI
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
-
     var window: UIWindow?
 
     func scene(
         _ scene: UIScene,
-        willConnectTo session: UISceneSession,
-        options connectionOptions: UIScene.ConnectionOptions
+        willConnectTo _: UISceneSession,
+        options _: UIScene.ConnectionOptions
     ) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
 
@@ -48,7 +47,7 @@ class LazySelectVirtualProxy {
 }
 
 class MultilineTitleNavigationController: UINavigationController, UINavigationBarDelegate {
-    func navigationBar(_ navigationBar: UINavigationBar, shouldPush item: UINavigationItem) -> Bool {
+    func navigationBar(_: UINavigationBar, shouldPush item: UINavigationItem) -> Bool {
         item.setValue(true, forKey: "__largeTitleTwoLineMode")
         return true
     }
@@ -57,13 +56,13 @@ class MultilineTitleNavigationController: UINavigationController, UINavigationBa
 extension UINavigationBar {
     func setMultiline(title: String) {
         for navItem in subviews {
-             for itemSubView in navItem.subviews {
-                 if let largeLabel = itemSubView as? UILabel {
-                     largeLabel.text = title
-                     largeLabel.numberOfLines = 0
-                     largeLabel.lineBreakMode = .byWordWrapping
-                 }
-             }
+            for itemSubView in navItem.subviews {
+                if let largeLabel = itemSubView as? UILabel {
+                    largeLabel.text = title
+                    largeLabel.numberOfLines = 0
+                    largeLabel.lineBreakMode = .byWordWrapping
+                }
+            }
         }
     }
 }

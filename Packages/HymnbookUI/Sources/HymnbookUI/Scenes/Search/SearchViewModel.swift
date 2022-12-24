@@ -29,7 +29,7 @@ public final class SearchViewModel: ObservableObject {
                 switch result {
                 case .none:
                     state = .loading
-                case .success(let list):
+                case let .success(list):
                     allSongs = list
                 case .failure:
                     state = .error(

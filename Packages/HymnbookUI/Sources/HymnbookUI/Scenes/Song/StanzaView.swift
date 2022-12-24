@@ -18,7 +18,6 @@ public struct StanzaView: View {
             alignment: .leading
         )
         .multilineTextAlignment(.leading)
-
     }
 }
 

@@ -1,18 +1,18 @@
 import UIKit
 
 final class MainFirstSplitViewController: UISplitViewController, UISplitViewControllerDelegate {
-
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.delegate = self
-        self.preferredDisplayMode = .oneBesideSecondary
+        delegate = self
+        preferredDisplayMode = .oneBesideSecondary
     }
 
     func splitViewController(
-             _ splitViewController: UISplitViewController,
-             collapseSecondary secondaryViewController: UIViewController,
-             onto primaryViewController: UIViewController) -> Bool {
+        _: UISplitViewController,
+        collapseSecondary _: UIViewController,
+        onto _: UIViewController
+    ) -> Bool {
         // Return true to prevent UIKit from applying its default behavior
-        return true
+        true
     }
 }

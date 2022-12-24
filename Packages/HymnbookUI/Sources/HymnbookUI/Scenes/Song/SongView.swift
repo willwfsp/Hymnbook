@@ -1,7 +1,7 @@
 import SwiftUI
 
 public struct SongView: View {
-    public init() { }
+    public init() {}
 
     public var body: some View {
         VStack(spacing: 16) {
@@ -37,7 +37,6 @@ public struct SongView: View {
             Spacer()
         }
         .padding()
-
     }
 }
 

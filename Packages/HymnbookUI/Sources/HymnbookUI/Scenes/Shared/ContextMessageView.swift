@@ -22,7 +22,6 @@ struct ContextMessageView: View {
                     .font(.body)
                     .multilineTextAlignment(.center)
                     .foregroundColor(.secondary)
-
             }
             .frame(maxWidth: 200)
         }

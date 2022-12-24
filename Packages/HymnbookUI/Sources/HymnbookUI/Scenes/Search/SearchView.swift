@@ -16,16 +16,16 @@ public struct SearchView: View {
 
     public var body: some View {
         switch state {
-        case .content(let state):
+        case let .content(state):
             SearchResultsView(
                 state: state
             )
-        case .empty(let title, let message):
+        case let .empty(title, message):
             EmptyStateView(
                 title: title,
                 message: message
             )
-        case .error(let title, let message):
+        case let .error(title, message):
             ErrorStateView(
                 title: title,
                 message: message
@@ -41,7 +41,8 @@ struct ContentView_Previews: PreviewProvider {
     static func item(_ name: String) -> SearchResultsState.Item {
         .init(
             id: UUID(),
-            name: name, onSelect: {})
+            name: name, onSelect: {}
+        )
     }
 
     static var previews: some View {

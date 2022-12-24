@@ -15,7 +15,7 @@ class SearchStubAdapter: ObservableObject {
 
     func fetchSongs() {
         result = nil
-        self.result = .success(self.mocks)
+        result = .success(mocks)
     }
 
     struct GenericError: Error {}
