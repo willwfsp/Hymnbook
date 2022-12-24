@@ -1,12 +1,12 @@
 import SwiftUI
 
-enum Icon: String {
+enum SystemSymbol: String {
     case magnifyingGlass = "magnifyingglass"
     case xCircleFill = "x.circle.fill"
 }
 
 extension Image {
-    init(_ icon: Icon) {
-        self.init(systemName: icon.rawValue)
+    init(systemSymbol: SystemSymbol) {
+        self.init(systemName: systemSymbol.rawValue)
     }
 }

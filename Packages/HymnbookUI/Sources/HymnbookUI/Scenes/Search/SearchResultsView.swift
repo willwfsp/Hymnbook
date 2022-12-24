@@ -18,7 +18,7 @@ struct SearchResultsView: View {
             Section(header: Text(state.sectionHeader)) {
                 ForEach(state.list, id: \.id) { item in
                     HStack {
-                        Label(item.name, systemImage: Icon.magnifyingGlass.rawValue)
+                        Label(item.name, systemImage: SystemSymbol.magnifyingGlass.rawValue)
                             .lineLimit(1)
                             .padding(.vertical, 8)
 

@@ -1,14 +1,14 @@
 import SwiftUI
 
 struct ContextMessageView: View {
-    let icon: Icon?
+    let icon: SystemSymbol?
     let title: String
     let message: String
 
     var body: some View {
         VStack(spacing: 16) {
             if let icon {
-                Image(icon)
+                Image(systemSymbol: icon)
                     .font(.system(size: 48))
                     .foregroundColor(.secondary)
             }
