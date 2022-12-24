@@ -8,5 +8,5 @@ enum SystemSymbol: String {
 extension Image {
     init(systemSymbol: SystemSymbol) {
         self.init(systemName: systemSymbol.rawValue)
-         }
+    }
 }
