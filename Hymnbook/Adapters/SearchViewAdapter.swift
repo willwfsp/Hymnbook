@@ -2,7 +2,7 @@ import Combine
 import Foundation
 import HymnbookUI
 
-class SearchStubAdapter: ObservableObject {
+class SearchStubAdapter: ObservableObject, SearchLoader {
     @Published var result: Result<[SearchItem], Error>?
 
     private let mocks: [SearchItem] = [
@@ -12,6 +12,10 @@ class SearchStubAdapter: ObservableObject {
         .init(id: UUID(), name: "God is in His temple"),
         .init(id: UUID(), name: "Hallelujah! Many voices of Angels")
     ]
+
+    func fetchSongs() async throws -> [SearchItem] {
+        mocks
+    }
 
     func fetchSongs() {
         result = nil

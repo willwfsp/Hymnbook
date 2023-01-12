@@ -3,24 +3,55 @@ import HymnbookUI
 import SwiftUI
 import UIKit
 
-private class SearchBinder {
-    let viewModel: SearchViewModel
-    let adapter = SearchStubAdapter()
+enum SearchUIComposer {
+    static func make(
+        onSelect: @escaping (SearchItem) -> Void
+    ) -> UIViewController {
+        let binder = Binder(
+            loader: SearchStubAdapter(),
+            viewModel: SearchViewModel(onSelect: onSelect)
+        )
 
-    var cancellables: Set<AnyCancellable> = []
+        let view = ComposedView(viewModel: binder.viewModel)
+            .onAppear {
+                binder.fetchSongs()
+            }
 
-    init(onSelect: @escaping (SearchItem) -> Void) {
-        viewModel = SearchViewModel(onSelect: onSelect)
+        let viewController = UIHostingController(rootView: view)
+        viewController.title = "Search"
 
-        adapter.$result
-            .sink { [unowned self] in
-                self.viewModel.result = $0
-            }.store(in: &cancellables)
+        return viewController
     }
 }
 
-enum SearchComposer {
-    struct SearchComposedView: View {
+extension SearchUIComposer {
+    class Binder {
+        let viewModel: SearchViewModel
+        let loader: SearchLoader
+
+        private var cancellable: AnyCancellable?
+
+        init(
+            loader: SearchLoader,
+            viewModel: SearchViewModel
+        ) {
+            self.loader = loader
+            self.viewModel = viewModel
+        }
+
+        func fetchSongs() {
+            cancellable = loader
+                .fetchSongsPublisher()
+                .dispatchOnMainQueue()
+                .sinkResult { [weak self] result in
+                    self?.viewModel.result = result
+                }
+        }
+    }
+}
+
+extension SearchUIComposer {
+    struct ComposedView: View {
         @ObservedObject var viewModel: SearchViewModel
 
         var body: some View {
@@ -30,18 +61,15 @@ enum SearchComposer {
             .searchable(text: $viewModel.searchText)
         }
     }
+}
 
-    static func make(onSelect: @escaping (SearchItem) -> Void) -> UIViewController {
-        let binder = SearchBinder(onSelect: onSelect)
-
-        let view = SearchComposedView(viewModel: binder.viewModel)
-            .onAppear {
-                binder.adapter.fetchSongs()
+extension SearchLoader {
+    func fetchSongsPublisher() -> AnyPublisher<[SearchItem], Error> {
+        Deferred {
+            Future {
+                try await fetchSongs()
             }
-
-        let viewController = UIHostingController(rootView: view)
-        viewController.title = "Search"
-
-        return viewController
+        }
+        .eraseToAnyPublisher()
     }
 }

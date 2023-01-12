@@ -14,26 +14,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         let window = UIWindow(windowScene: windowScene)
 
-        let lazySelection = LazySelectVirtualProxy()
-
-        let primaryViewController = SearchComposer.make(onSelect: { [lazySelection] item in
-            lazySelection.onSelect?(item)
-        })
-
-        let secondaryViewController = SongUIComposer.make()
-
-        lazySelection.onSelect = { _ in
-            let nav = MultilineTitleNavigationController(rootViewController: secondaryViewController)
-            secondaryViewController.navigationItem.largeTitleDisplayMode = .never
-            secondaryViewController.title = "Song"
-            primaryViewController.showDetailViewController(nav, sender: nil)
-        }
-
-        let nav = UINavigationController(rootViewController: primaryViewController)
-        nav.navigationBar.prefersLargeTitles = true
-
-        let splitVC = MainFirstSplitViewController()
-        splitVC.viewControllers = [nav]
+        let splitVC = SplitViewComposer.make()
 
         window.rootViewController = splitVC
 
@@ -46,23 +27,21 @@ class LazySelectVirtualProxy {
     var onSelect: ((SearchItem) -> Void)?
 }
 
-class MultilineTitleNavigationController: UINavigationController, UINavigationBarDelegate {
-    func navigationBar(_: UINavigationBar, shouldPush item: UINavigationItem) -> Bool {
-        item.setValue(true, forKey: "__largeTitleTwoLineMode")
-        return true
-    }
-}
+class SearchRouter {
+    private let source: UIViewController
+    private let makeSongScreen: (UUID) -> UIViewController
 
-extension UINavigationBar {
-    func setMultiline(title: String) {
-        for navItem in subviews {
-            for itemSubView in navItem.subviews {
-                if let largeLabel = itemSubView as? UILabel {
-                    largeLabel.text = title
-                    largeLabel.numberOfLines = 0
-                    largeLabel.lineBreakMode = .byWordWrapping
-                }
-            }
-        }
+    init(source: UIViewController, makeSongScreen: @escaping (UUID) -> UIViewController) {
+        self.source = source
+        self.makeSongScreen = makeSongScreen
+    }
+
+    func showSongWith(id: UUID) {
+        let secondaryViewController = makeSongScreen(id)
+
+        let nav = UINavigationController(rootViewController: secondaryViewController)
+        secondaryViewController.navigationItem.largeTitleDisplayMode = .never
+        secondaryViewController.title = "Song"
+        source.showDetailViewController(nav, sender: nil)
     }
 }

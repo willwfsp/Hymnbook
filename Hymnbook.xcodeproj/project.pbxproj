@@ -16,6 +16,10 @@
 		B059E48D293419BD001B3D2B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B059E48C293419BD001B3D2B /* Assets.xcassets */; };
 		B059E490293419BD001B3D2B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B059E48E293419BD001B3D2B /* LaunchScreen.storyboard */; };
 		B059E4BC29342286001B3D2B /* HymnbookUI in Frameworks */ = {isa = PBXBuildFile; productRef = B059E4BB29342286001B3D2B /* HymnbookUI */; };
+		B0972249296FDAE3003DB87A /* Combine+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0972248296FDAE3003DB87A /* Combine+Extensions.swift */; };
+		B097224B296FDE33003DB87A /* Schedulers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B097224A296FDE33003DB87A /* Schedulers.swift */; };
+		B0B7582D2956B39B00AA28F6 /* SplitViewComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B7582C2956B39B00AA28F6 /* SplitViewComposer.swift */; };
+		B0B758302956B48500AA28F6 /* SearchLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B7582F2956B48500AA28F6 /* SearchLoader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +34,10 @@
 		B059E48F293419BD001B3D2B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B059E491293419BD001B3D2B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B059E4B829341EDD001B3D2B /* HymnbookUI */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = HymnbookUI; path = Packages/HymnbookUI; sourceTree = "<group>"; };
+		B0972248296FDAE3003DB87A /* Combine+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Combine+Extensions.swift"; sourceTree = "<group>"; };
+		B097224A296FDE33003DB87A /* Schedulers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Schedulers.swift; sourceTree = "<group>"; };
+		B0B7582C2956B39B00AA28F6 /* SplitViewComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitViewComposer.swift; sourceTree = "<group>"; };
+		B0B7582F2956B48500AA28F6 /* SearchLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchLoader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +65,7 @@
 			children = (
 				B038DC992938334B008CD119 /* SearchUIComposer.swift */,
 				35A33B0229466EFF00B7C07B /* SongUIComposer.swift */,
+				B0B7582C2956B39B00AA28F6 /* SplitViewComposer.swift */,
 			);
 			path = Composers;
 			sourceTree = "<group>";
@@ -90,6 +99,8 @@
 		B059E482293419BD001B3D2B /* Hymnbook */ = {
 			isa = PBXGroup;
 			children = (
+				B0972247296FDAD4003DB87A /* Utils */,
+				B0B7582E2956B46F00AA28F6 /* Domain */,
 				35A33B04294670EA00B7C07B /* ViewControllers */,
 				B038DCBB293B03F3008CD119 /* Adapters */,
 				B038DC9829383338008CD119 /* Composers */,
@@ -115,6 +126,23 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B0972247296FDAD4003DB87A /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				B0972248296FDAE3003DB87A /* Combine+Extensions.swift */,
+				B097224A296FDE33003DB87A /* Schedulers.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		B0B7582E2956B46F00AA28F6 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				B0B7582F2956B48500AA28F6 /* SearchLoader.swift */,
+			);
+			path = Domain;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -214,11 +242,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				35A33B0329466EFF00B7C07B /* SongUIComposer.swift in Sources */,
+				B0972249296FDAE3003DB87A /* Combine+Extensions.swift in Sources */,
 				35A33B062946710000B7C07B /* MainFirstSplitViewController.swift in Sources */,
+				B0B758302956B48500AA28F6 /* SearchLoader.swift in Sources */,
 				B038DCBD293B0408008CD119 /* SearchViewAdapter.swift in Sources */,
+				B097224B296FDE33003DB87A /* Schedulers.swift in Sources */,
 				B059E484293419BD001B3D2B /* AppDelegate.swift in Sources */,
 				B038DC9A2938334B008CD119 /* SearchUIComposer.swift in Sources */,
 				B059E486293419BD001B3D2B /* SceneDelegate.swift in Sources */,
+				B0B7582D2956B39B00AA28F6 /* SplitViewComposer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
