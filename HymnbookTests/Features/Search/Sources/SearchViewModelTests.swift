@@ -1,31 +1,19 @@
+import SwiftUI
 import XCTest
+enum SearchState {
+    case loading
+    case error
+    case content
+}
 
-final class SearchViewModel {
-    var isLoading = false
-    let hasError = false
-    let content = [String]()
-
-    func onAppear() {
-        isLoading = true
-    }
+final class SearchViewModel: ObservableObject {
+    @Published var state = SearchState.loading
 }
 
 final class SearchViewModelTests: XCTestCase {
-    func testInitsOnBlankState() {
+    func testInitsOnLoadingState() {
         let sut = SearchViewModel()
 
-        XCTAssertFalse(sut.isLoading)
-        XCTAssertFalse(sut.hasError)
-        XCTAssertTrue(sut.content.isEmpty)
-    }
-
-    func testStartsLoadingOnAppear() {
-        let sut = SearchViewModel()
-
-        sut.onAppear()
-
-        XCTAssertTrue(sut.isLoading)
-        XCTAssertFalse(sut.hasError)
-        XCTAssertTrue(sut.content.isEmpty)
+        XCTAssertEqual(sut.state, .loading)
     }
 }
