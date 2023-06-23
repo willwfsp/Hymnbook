@@ -1,6 +1,6 @@
-"search.sectionContent" = "Resultados da Busca";
-"search.sectionAllSongs" = "Todos os Louvores";
-"search.noResultsTitle" = "Nenhum resultado encontrado";
-"search.noResultsMessage" = "Verifique a ortografia ou use palavras-chave diferentes";
-"search.errorTitle" = "Ops!";
-"search.errorMessage" = "Algo deu errado. Por favor, tente novamente.";
+"sectionContent" = "Resultados da Busca";
+"sectionAllSongs" = "Todos os Louvores";
+"noResultsTitle" = "Nenhum resultado encontrado";
+"noResultsMessage" = "Verifique a ortografia ou use palavras-chave diferentes";
+"errorTitle" = "Ops!";
+"errorMessage" = "Algo deu errado. Por favor, tente novamente.";

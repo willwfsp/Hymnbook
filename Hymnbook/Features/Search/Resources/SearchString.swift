@@ -1,6 +1,8 @@
 import Foundation
 
-enum SearchString {
+final class SearchString {
+    private init() {}
+
     static let sectionContent = "sectionContent".localized()
     static let sectionAllSongs = "sectionAllSongs".localized()
     static let noResultsTitle = "noResultsTitle".localized()
