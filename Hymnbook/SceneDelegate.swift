@@ -1,4 +1,3 @@
-import HymnbookUI
 import SwiftUI
 import UIKit
 
@@ -29,19 +28,10 @@ class LazySelectVirtualProxy {
 
 class SearchRouter {
     private let source: UIViewController
-    private let makeSongScreen: (UUID) -> UIViewController
 
-    init(source: UIViewController, makeSongScreen: @escaping (UUID) -> UIViewController) {
+    init(source: UIViewController) {
         self.source = source
-        self.makeSongScreen = makeSongScreen
     }
 
-    func showSongWith(id: UUID) {
-        let secondaryViewController = makeSongScreen(id)
-
-        let nav = UINavigationController(rootViewController: secondaryViewController)
-        secondaryViewController.navigationItem.largeTitleDisplayMode = .never
-        secondaryViewController.title = "Song"
-        source.showDetailViewController(nav, sender: nil)
-    }
+    func showSongWith(id _: UUID) {}
 }

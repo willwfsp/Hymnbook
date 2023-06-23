@@ -12,7 +12,7 @@ public struct SearchItem {
 }
 
 public final class SearchViewModel: ObservableObject {
-    private typealias Strings = L10n.Search
+    private typealias Strings = SearchString
 
     @Published public var searchText = ""
     @Published public var result: Result<[SearchItem], Error>?

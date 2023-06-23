@@ -1,6 +1,5 @@
 import Combine
 import Foundation
-import HymnbookUI
 
 class SearchStubAdapter: ObservableObject, SearchLoader {
     @Published var result: Result<[SearchItem], Error>?

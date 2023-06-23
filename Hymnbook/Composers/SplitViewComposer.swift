@@ -9,8 +9,7 @@ enum SplitViewComposer {
         })
 
         let searchRouter = SearchRouter(
-            source: primaryViewController,
-            makeSongScreen: SongUIComposer.make
+            source: primaryViewController
         )
 
         lazySelection.onSelect = { item in
