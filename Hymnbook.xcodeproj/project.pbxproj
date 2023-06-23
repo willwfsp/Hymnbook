@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		35A33B062946710000B7C07B /* MainFirstSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A33B052946710000B7C07B /* MainFirstSplitViewController.swift */; };
-		B038DC9A2938334B008CD119 /* SearchUIComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B038DC992938334B008CD119 /* SearchUIComposer.swift */; };
-		B038DCBD293B0408008CD119 /* SearchViewAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B038DCBC293B0408008CD119 /* SearchViewAdapter.swift */; };
 		B059E484293419BD001B3D2B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B059E483293419BD001B3D2B /* AppDelegate.swift */; };
 		B059E486293419BD001B3D2B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B059E485293419BD001B3D2B /* SceneDelegate.swift */; };
 		B059E48D293419BD001B3D2B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B059E48C293419BD001B3D2B /* Assets.xcassets */; };
@@ -17,9 +15,7 @@
 		B0972249296FDAE3003DB87A /* Combine+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0972248296FDAE3003DB87A /* Combine+Extensions.swift */; };
 		B097224B296FDE33003DB87A /* Schedulers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B097224A296FDE33003DB87A /* Schedulers.swift */; };
 		B0B7582D2956B39B00AA28F6 /* SplitViewComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B7582C2956B39B00AA28F6 /* SplitViewComposer.swift */; };
-		B0B758302956B48500AA28F6 /* SearchLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B7582F2956B48500AA28F6 /* SearchLoader.swift */; };
 		B0CC7CEF2A451B740055BD1C /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CC7CEC2A451B740055BD1C /* SearchView.swift */; };
-		B0CC7CF02A451B740055BD1C /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CC7CED2A451B740055BD1C /* SearchViewModel.swift */; };
 		B0CC7CF12A451B740055BD1C /* SearchResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CC7CEE2A451B740055BD1C /* SearchResultsView.swift */; };
 		B0CC7D022A451D4F0055BD1C /* ErrorStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CC7CFF2A451D4F0055BD1C /* ErrorStateView.swift */; };
 		B0CC7D032A451D4F0055BD1C /* ContextMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CC7D002A451D4F0055BD1C /* ContextMessageView.swift */; };
@@ -29,10 +25,18 @@
 		B0CC7D0F2A451FB20055BD1C /* SearchString.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CC7D0E2A451FB20055BD1C /* SearchString.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		B0CC7D1A2A4522D40055BD1C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B059E478293419BC001B3D2B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B059E47F293419BD001B3D2B;
+			remoteInfo = Hymnbook;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		35A33B052946710000B7C07B /* MainFirstSplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFirstSplitViewController.swift; sourceTree = "<group>"; };
-		B038DC992938334B008CD119 /* SearchUIComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUIComposer.swift; sourceTree = "<group>"; };
-		B038DCBC293B0408008CD119 /* SearchViewAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewAdapter.swift; sourceTree = "<group>"; };
 		B059E480293419BD001B3D2B /* Hymnbook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hymnbook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B059E483293419BD001B3D2B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B059E485293419BD001B3D2B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -42,9 +46,7 @@
 		B0972248296FDAE3003DB87A /* Combine+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Combine+Extensions.swift"; sourceTree = "<group>"; };
 		B097224A296FDE33003DB87A /* Schedulers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Schedulers.swift; sourceTree = "<group>"; };
 		B0B7582C2956B39B00AA28F6 /* SplitViewComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitViewComposer.swift; sourceTree = "<group>"; };
-		B0B7582F2956B48500AA28F6 /* SearchLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchLoader.swift; sourceTree = "<group>"; };
 		B0CC7CEC2A451B740055BD1C /* SearchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
-		B0CC7CED2A451B740055BD1C /* SearchViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		B0CC7CEE2A451B740055BD1C /* SearchResultsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultsView.swift; sourceTree = "<group>"; };
 		B0CC7CFF2A451D4F0055BD1C /* ErrorStateView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorStateView.swift; sourceTree = "<group>"; };
 		B0CC7D002A451D4F0055BD1C /* ContextMessageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContextMessageView.swift; sourceTree = "<group>"; };
@@ -53,10 +55,18 @@
 		B0CC7D0B2A451F050055BD1C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/SearchLocalizable.strings; sourceTree = "<group>"; };
 		B0CC7D0D2A451F200055BD1C /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/SearchLocalizable.strings"; sourceTree = "<group>"; };
 		B0CC7D0E2A451FB20055BD1C /* SearchString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchString.swift; sourceTree = "<group>"; };
+		B0CC7D162A4522D40055BD1C /* HymnbookTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HymnbookTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		B059E47D293419BD001B3D2B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B0CC7D132A4522D40055BD1C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -77,24 +87,16 @@
 		B038DC9829383338008CD119 /* Composers */ = {
 			isa = PBXGroup;
 			children = (
-				B038DC992938334B008CD119 /* SearchUIComposer.swift */,
 				B0B7582C2956B39B00AA28F6 /* SplitViewComposer.swift */,
 			);
 			path = Composers;
-			sourceTree = "<group>";
-		};
-		B038DCBB293B03F3008CD119 /* Adapters */ = {
-			isa = PBXGroup;
-			children = (
-				B038DCBC293B0408008CD119 /* SearchViewAdapter.swift */,
-			);
-			path = Adapters;
 			sourceTree = "<group>";
 		};
 		B059E477293419BC001B3D2B = {
 			isa = PBXGroup;
 			children = (
 				B059E482293419BD001B3D2B /* Hymnbook */,
+				B0CC7D172A4522D40055BD1C /* HymnbookTests */,
 				B059E481293419BD001B3D2B /* Products */,
 				B059E4BA29342286001B3D2B /* Frameworks */,
 			);
@@ -104,6 +106,7 @@
 			isa = PBXGroup;
 			children = (
 				B059E480293419BD001B3D2B /* Hymnbook.app */,
+				B0CC7D162A4522D40055BD1C /* HymnbookTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -113,9 +116,7 @@
 			children = (
 				B0CC7CEA2A451B370055BD1C /* Features */,
 				B0972247296FDAD4003DB87A /* Utils */,
-				B0B7582E2956B46F00AA28F6 /* Domain */,
 				35A33B04294670EA00B7C07B /* ViewControllers */,
-				B038DCBB293B03F3008CD119 /* Adapters */,
 				B038DC9829383338008CD119 /* Composers */,
 				B059E483293419BD001B3D2B /* AppDelegate.swift */,
 				B059E485293419BD001B3D2B /* SceneDelegate.swift */,
@@ -143,14 +144,6 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
-		B0B7582E2956B46F00AA28F6 /* Domain */ = {
-			isa = PBXGroup;
-			children = (
-				B0B7582F2956B48500AA28F6 /* SearchLoader.swift */,
-			);
-			path = Domain;
-			sourceTree = "<group>";
-		};
 		B0CC7CEA2A451B370055BD1C /* Features */ = {
 			isa = PBXGroup;
 			children = (
@@ -163,11 +156,8 @@
 		B0CC7CEB2A451B740055BD1C /* Search */ = {
 			isa = PBXGroup;
 			children = (
-				B0CC7CEC2A451B740055BD1C /* SearchView.swift */,
-				B0CC7CED2A451B740055BD1C /* SearchViewModel.swift */,
-				B0CC7CEE2A451B740055BD1C /* SearchResultsView.swift */,
-				B0CC7D0C2A451F050055BD1C /* SearchLocalizable.strings */,
-				B0CC7D0E2A451FB20055BD1C /* SearchString.swift */,
+				B0CC7D112A4522150055BD1C /* Resources */,
+				B0CC7D102A4522100055BD1C /* Sources */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -175,9 +165,6 @@
 		B0CC7CFE2A451D4F0055BD1C /* Shared */ = {
 			isa = PBXGroup;
 			children = (
-				B0CC7CFF2A451D4F0055BD1C /* ErrorStateView.swift */,
-				B0CC7D002A451D4F0055BD1C /* ContextMessageView.swift */,
-				B0CC7D012A451D4F0055BD1C /* EmptyStateView.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -188,6 +175,50 @@
 				B0CC7D062A451E6D0055BD1C /* SystemSymbols.swift */,
 			);
 			path = SwiftUI;
+			sourceTree = "<group>";
+		};
+		B0CC7D102A4522100055BD1C /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				B0CC7CFF2A451D4F0055BD1C /* ErrorStateView.swift */,
+				B0CC7D002A451D4F0055BD1C /* ContextMessageView.swift */,
+				B0CC7D012A451D4F0055BD1C /* EmptyStateView.swift */,
+				B0CC7CEE2A451B740055BD1C /* SearchResultsView.swift */,
+				B0CC7CEC2A451B740055BD1C /* SearchView.swift */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		B0CC7D112A4522150055BD1C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				B0CC7D0E2A451FB20055BD1C /* SearchString.swift */,
+				B0CC7D0C2A451F050055BD1C /* SearchLocalizable.strings */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		B0CC7D172A4522D40055BD1C /* HymnbookTests */ = {
+			isa = PBXGroup;
+			children = (
+				B0CC7D1F2A4522DA0055BD1C /* Features */,
+			);
+			path = HymnbookTests;
+			sourceTree = "<group>";
+		};
+		B0CC7D1F2A4522DA0055BD1C /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				B0CC7D202A4522E00055BD1C /* Search */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		B0CC7D202A4522E00055BD1C /* Search */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Search;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -213,6 +244,24 @@
 			productReference = B059E480293419BD001B3D2B /* Hymnbook.app */;
 			productType = "com.apple.product-type.application";
 		};
+		B0CC7D152A4522D40055BD1C /* HymnbookTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B0CC7D1C2A4522D40055BD1C /* Build configuration list for PBXNativeTarget "HymnbookTests" */;
+			buildPhases = (
+				B0CC7D122A4522D40055BD1C /* Sources */,
+				B0CC7D132A4522D40055BD1C /* Frameworks */,
+				B0CC7D142A4522D40055BD1C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B0CC7D1B2A4522D40055BD1C /* PBXTargetDependency */,
+			);
+			name = HymnbookTests;
+			productName = HymnbookTests;
+			productReference = B0CC7D162A4522D40055BD1C /* HymnbookTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -220,11 +269,15 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1410;
+				LastSwiftUpdateCheck = 1420;
 				LastUpgradeCheck = 1410;
 				TargetAttributes = {
 					B059E47F293419BD001B3D2B = {
 						CreatedOnToolsVersion = 14.1;
+					};
+					B0CC7D152A4522D40055BD1C = {
+						CreatedOnToolsVersion = 14.2;
+						TestTargetID = B059E47F293419BD001B3D2B;
 					};
 				};
 			};
@@ -243,6 +296,7 @@
 			projectRoot = "";
 			targets = (
 				B059E47F293419BD001B3D2B /* Hymnbook */,
+				B0CC7D152A4522D40055BD1C /* HymnbookTests */,
 			);
 		};
 /* End PBXProject section */
@@ -255,6 +309,13 @@
 				B059E490293419BD001B3D2B /* LaunchScreen.storyboard in Resources */,
 				B059E48D293419BD001B3D2B /* Assets.xcassets in Resources */,
 				B0CC7D0A2A451F050055BD1C /* SearchLocalizable.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B0CC7D142A4522D40055BD1C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -289,16 +350,12 @@
 			files = (
 				B0972249296FDAE3003DB87A /* Combine+Extensions.swift in Sources */,
 				35A33B062946710000B7C07B /* MainFirstSplitViewController.swift in Sources */,
-				B0B758302956B48500AA28F6 /* SearchLoader.swift in Sources */,
 				B0CC7D0F2A451FB20055BD1C /* SearchString.swift in Sources */,
 				B0CC7D032A451D4F0055BD1C /* ContextMessageView.swift in Sources */,
 				B0CC7CF12A451B740055BD1C /* SearchResultsView.swift in Sources */,
-				B038DCBD293B0408008CD119 /* SearchViewAdapter.swift in Sources */,
 				B097224B296FDE33003DB87A /* Schedulers.swift in Sources */,
-				B0CC7CF02A451B740055BD1C /* SearchViewModel.swift in Sources */,
 				B059E484293419BD001B3D2B /* AppDelegate.swift in Sources */,
 				B0CC7D042A451D4F0055BD1C /* EmptyStateView.swift in Sources */,
-				B038DC9A2938334B008CD119 /* SearchUIComposer.swift in Sources */,
 				B059E486293419BD001B3D2B /* SceneDelegate.swift in Sources */,
 				B0CC7D072A451E6D0055BD1C /* SystemSymbols.swift in Sources */,
 				B0B7582D2956B39B00AA28F6 /* SplitViewComposer.swift in Sources */,
@@ -307,7 +364,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B0CC7D122A4522D40055BD1C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B0CC7D1B2A4522D40055BD1C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B059E47F293419BD001B3D2B /* Hymnbook */;
+			targetProxy = B0CC7D1A2A4522D40055BD1C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		B059E48E293419BD001B3D2B /* LaunchScreen.storyboard */ = {
@@ -506,6 +578,42 @@
 			};
 			name = Release;
 		};
+		B0CC7D1D2A4522D40055BD1C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.policiano.HymnbookTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Hymnbook.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Hymnbook";
+			};
+			name = Debug;
+		};
+		B0CC7D1E2A4522D40055BD1C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.policiano.HymnbookTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Hymnbook.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Hymnbook";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -523,6 +631,15 @@
 			buildConfigurations = (
 				B059E495293419BD001B3D2B /* Debug */,
 				B059E496293419BD001B3D2B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B0CC7D1C2A4522D40055BD1C /* Build configuration list for PBXNativeTarget "HymnbookTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B0CC7D1D2A4522D40055BD1C /* Debug */,
+				B0CC7D1E2A4522D40055BD1C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

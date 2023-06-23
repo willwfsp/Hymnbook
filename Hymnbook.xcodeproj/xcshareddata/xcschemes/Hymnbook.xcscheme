@@ -39,6 +39,17 @@
                ReferencedContainer = "container:Packages/HymnbookUI">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO"
+            parallelizable = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "B0CC7D152A4522D40055BD1C"
+               BuildableName = "HymnbookTests.xctest"
+               BlueprintName = "HymnbookTests"
+               ReferencedContainer = "container:Hymnbook.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction

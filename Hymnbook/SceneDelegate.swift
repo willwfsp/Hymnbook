@@ -22,10 +22,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 }
 
-class LazySelectVirtualProxy {
-    var onSelect: ((SearchItem) -> Void)?
-}
-
 class SearchRouter {
     private let source: UIViewController
 
