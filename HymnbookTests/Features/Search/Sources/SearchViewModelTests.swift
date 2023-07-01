@@ -15,6 +15,7 @@ final class SearchViewModel: ObservableObject {
     @Published var state = SearchState.idle
 
     private let fetchRecentSearches: FetchRecentSearches
+    private var cancellable: AnyCancellable?
 
     init(
         fetchRecentSearches: @escaping FetchRecentSearches
@@ -24,38 +25,57 @@ final class SearchViewModel: ObservableObject {
 
     func onAppear() {
         state = .loading
-        fetchRecentSearches().sink { _ in
-            self.state = .empty
+        cancellable = fetchRecentSearches().sink { [weak self] _ in
+            self?.state = .empty
         }
     }
 }
 
 final class SearchViewModelTests: XCTestCase {
     func test_initsIdling() {
-        let (_, spy) = makeSUT()
+        let (sut, recentSearchesFetcher) = makeSUT()
 
-        XCTAssertTrue(spy.events.isEmpty)
+        XCTAssertTrue(recentSearchesFetcher.events.isEmpty)
+        XCTAssertEqual(sut.state, .idle)
     }
 
     func test_awaysFetchRecentSearchesOnAppear() {
-        let (sut, spy) = makeSUT()
+        let (sut, recentSearchesFetcher) = makeSUT()
 
         sut.onAppear()
+        XCTAssertEqual(sut.state, .loading)
         sut.onAppear()
 
-        XCTAssertEqual(spy.events, [
+        XCTAssertEqual(sut.state, .loading)
+        XCTAssertEqual(recentSearchesFetcher.events, [
             .fetchRecentSearches,
             .fetchRecentSearches
         ])
     }
 
-    private func makeSUT() -> (
+    func test_setsEmptyStateUponNoRecentSearchesFetched() {
+        let (sut, recentSearchesFetcher) = makeSUT()
+
+        sut.onAppear()
+        recentSearchesFetcher.complete(with: [])
+
+        XCTAssertEqual(sut.state, .empty)
+        XCTAssertEqual(recentSearchesFetcher.events, [
+            .fetchRecentSearches
+        ])
+    }
+
+    private func makeSUT(
+        file: StaticString = #filePath,
+        line: UInt = #line
+    ) -> (
         SearchViewModel,
         SearchViewModelDependenciesSpy
     ) {
         let spy = SearchViewModelDependenciesSpy()
         let sut = SearchViewModel(fetchRecentSearches: spy.fetchRecentSearches)
 
+        trackForMemoryLeaks(sut, spy, file: file, line: line)
         return (sut, spy)
     }
 }
