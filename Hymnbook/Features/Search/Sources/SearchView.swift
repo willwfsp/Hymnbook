@@ -9,9 +9,14 @@ public enum SearchViewState {
 
 public struct SearchView: View {
     private var state: SearchViewState
+    private let onAppear: () -> Void
 
-    public init(state: SearchViewState) {
+    public init(
+        state: SearchViewState,
+        onAppear: @escaping () -> Void
+    ) {
         self.state = state
+        self.onAppear = onAppear
     }
 
     public var body: some View {
@@ -77,5 +82,11 @@ struct ContentView_Previews: PreviewProvider {
             state: .error(title: "Error", message: "error")
         )
         .previewDisplayName("Error")
+    }
+}
+
+private extension SearchView {
+    init(state: SearchViewState) {
+        self.init(state: state, onAppear: {})
     }
 }
