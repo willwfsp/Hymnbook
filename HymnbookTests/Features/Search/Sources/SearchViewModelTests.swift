@@ -7,6 +7,7 @@ enum SearchState {
     case idle
     case loading
     case empty
+    case content([String])
 }
 
 typealias FetchRecentSearches = () -> AnyPublisher<[String], Never>
@@ -25,8 +26,8 @@ final class SearchViewModel: ObservableObject {
 
     func onAppear() {
         state = .loading
-        cancellable = fetchRecentSearches().sink { [weak self] _ in
-            self?.state = .empty
+        cancellable = fetchRecentSearches().sink { [weak self] result in
+            self?.state = result.isEmpty ? .empty : .content(result)
         }
     }
 }
@@ -60,6 +61,18 @@ final class SearchViewModelTests: XCTestCase {
         recentSearchesFetcher.complete(with: [])
 
         XCTAssertEqual(sut.state, .empty)
+        XCTAssertEqual(recentSearchesFetcher.events, [
+            .fetchRecentSearches
+        ])
+    }
+
+    func test_deliversContentWhenThereAreRecentSearches() {
+        let (sut, recentSearchesFetcher) = makeSUT()
+
+        sut.onAppear()
+        recentSearchesFetcher.complete(with: ["A", "B", "C"])
+
+        XCTAssertEqual(sut.state, .content(["A", "B", "C"]))
         XCTAssertEqual(recentSearchesFetcher.events, [
             .fetchRecentSearches
         ])
