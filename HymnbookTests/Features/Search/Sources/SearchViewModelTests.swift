@@ -3,11 +3,15 @@ import Foundation
 import SwiftUI
 import XCTest
 
+struct RecentSearches {
+    let terms: [String]
+}
+
 enum SearchState {
     case idle
     case loading
     case empty
-    case content([String])
+    case content(RecentSearches)
 }
 
 typealias FetchRecentSearches = () -> AnyPublisher<[String], Never>
@@ -26,8 +30,10 @@ final class SearchViewModel: ObservableObject {
 
     func onAppear() {
         state = .loading
-        cancellable = fetchRecentSearches().sink { [weak self] result in
-            self?.state = result.isEmpty ? .empty : .content(result)
+        cancellable = fetchRecentSearches().sink { [weak self] terms in
+            self?.state = terms.isEmpty
+                ? .empty
+                : .content(RecentSearches(terms: terms))
         }
     }
 }
@@ -68,11 +74,15 @@ final class SearchViewModelTests: XCTestCase {
 
     func test_deliversContentWhenThereAreRecentSearches() {
         let (sut, recentSearchesFetcher) = makeSUT()
+        let expectedTerms = ["A", "B", "C"]
 
         sut.onAppear()
-        recentSearchesFetcher.complete(with: ["A", "B", "C"])
+        recentSearchesFetcher.complete(with: expectedTerms)
 
-        XCTAssertEqual(sut.state, .content(["A", "B", "C"]))
+        XCTAssertEqual(
+            sut.state,
+            .content(RecentSearches(terms: expectedTerms))
+        )
         XCTAssertEqual(recentSearchesFetcher.events, [
             .fetchRecentSearches
         ])
