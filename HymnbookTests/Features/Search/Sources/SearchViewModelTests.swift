@@ -3,40 +3,7 @@ import Foundation
 import SwiftUI
 import XCTest
 
-struct RecentSearches {
-    let terms: [String]
-}
-
-enum SearchState {
-    case idle
-    case loading
-    case empty
-    case content(RecentSearches)
-}
-
-typealias FetchRecentSearches = () -> AnyPublisher<[String], Never>
-
-final class SearchViewModel: ObservableObject {
-    @Published var state = SearchState.idle
-
-    private let fetchRecentSearches: FetchRecentSearches
-    private var cancellable: AnyCancellable?
-
-    init(
-        fetchRecentSearches: @escaping FetchRecentSearches
-    ) {
-        self.fetchRecentSearches = fetchRecentSearches
-    }
-
-    func onAppear() {
-        state = .loading
-        cancellable = fetchRecentSearches().sink { [weak self] terms in
-            self?.state = terms.isEmpty
-                ? .empty
-                : .content(RecentSearches(terms: terms))
-        }
-    }
-}
+@testable import Hymnbook
 
 final class SearchViewModelTests: XCTestCase {
     func test_initsIdling() {

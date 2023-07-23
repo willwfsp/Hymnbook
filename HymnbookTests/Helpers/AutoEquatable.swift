@@ -3,7 +3,7 @@ import Foundation
 protocol AutoEquatable: Equatable {}
 
 extension AutoEquatable {
-    static func == (lhs: Self, rhs: Self) -> Bool {
+    public static func == (lhs: Self, rhs: Self) -> Bool {
         var lhsDump = String()
         dump(lhs, to: &lhsDump)
 
